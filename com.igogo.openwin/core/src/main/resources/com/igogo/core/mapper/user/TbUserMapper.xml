@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.igogo.core.mapper.user.TbUserMapper" >
+  <resultMap id="BaseResultMap" type="com.igogo.core.entity.TbUser" >
+    <id column="U_ID" property="uId" jdbcType="BIGINT" />
+    <result column="U_NAME" property="uName" jdbcType="VARCHAR" />
+    <result column="U_AGE" property="uAge" jdbcType="INTEGER" />
+    <result column="U_BIRTH" property="uBirth" jdbcType="TIMESTAMP" />
+    <result column="U_SEX" property="uSex" jdbcType="INTEGER" />
+    <result column="U_CREATE_TIME" property="uCreateTime" jdbcType="TIMESTAMP" />
+    <result column="U_UPDATE_TIME" property="uUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="U_LOGOUT" property="uLogout" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    U_ID, U_NAME, U_AGE, U_BIRTH, U_SEX, U_CREATE_TIME, U_UPDATE_TIME, U_LOGOUT
+  </sql>
+  <select  id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where U_ID = #{uId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.igogo.core.entity.TbUser" >
+    <selectKey resultType="java.lang.Long" keyProperty="uId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_user (U_NAME, U_AGE, U_BIRTH, 
+      U_SEX, U_CREATE_TIME, U_UPDATE_TIME, 
+      U_LOGOUT)
+    values (#{uName,jdbcType=VARCHAR}, #{uAge,jdbcType=INTEGER}, #{uBirth,jdbcType=TIMESTAMP}, 
+      #{uSex,jdbcType=INTEGER}, #{uCreateTime,jdbcType=TIMESTAMP}, #{uUpdateTime,jdbcType=TIMESTAMP}, 
+      #{uLogout,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.igogo.core.entity.TbUser" >
+    <selectKey resultType="java.lang.Long" keyProperty="uId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uName != null" >
+        U_NAME,
+      </if>
+      <if test="uAge != null" >
+        U_AGE,
+      </if>
+      <if test="uBirth != null" >
+        U_BIRTH,
+      </if>
+      <if test="uSex != null" >
+        U_SEX,
+      </if>
+      <if test="uCreateTime != null" >
+        U_CREATE_TIME,
+      </if>
+      <if test="uUpdateTime != null" >
+        U_UPDATE_TIME,
+      </if>
+      <if test="uLogout != null" >
+        U_LOGOUT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uName != null" >
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uAge != null" >
+        #{uAge,jdbcType=INTEGER},
+      </if>
+      <if test="uBirth != null" >
+        #{uBirth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uSex != null" >
+        #{uSex,jdbcType=INTEGER},
+      </if>
+      <if test="uCreateTime != null" >
+        #{uCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uUpdateTime != null" >
+        #{uUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uLogout != null" >
+        #{uLogout,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.igogo.core.entity.TbUser" >
+    update tb_user
+    <set >
+      <if test="uName != null" >
+        U_NAME = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uAge != null" >
+        U_AGE = #{uAge,jdbcType=INTEGER},
+      </if>
+      <if test="uBirth != null" >
+        U_BIRTH = #{uBirth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uSex != null" >
+        U_SEX = #{uSex,jdbcType=INTEGER},
+      </if>
+      <if test="uCreateTime != null" >
+        U_CREATE_TIME = #{uCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uUpdateTime != null" >
+        U_UPDATE_TIME = #{uUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uLogout != null" >
+        U_LOGOUT = #{uLogout,jdbcType=INTEGER},
+      </if>
+    </set>
+    where U_ID = #{uId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.igogo.core.entity.TbUser" >
+    update tb_user
+    set U_NAME = #{uName,jdbcType=VARCHAR},
+      U_AGE = #{uAge,jdbcType=INTEGER},
+      U_BIRTH = #{uBirth,jdbcType=TIMESTAMP},
+      U_SEX = #{uSex,jdbcType=INTEGER},
+      U_CREATE_TIME = #{uCreateTime,jdbcType=TIMESTAMP},
+      U_UPDATE_TIME = #{uUpdateTime,jdbcType=TIMESTAMP},
+      U_LOGOUT = #{uLogout,jdbcType=INTEGER}
+    where U_ID = #{uId,jdbcType=BIGINT}
+  </update>
+</mapper>
