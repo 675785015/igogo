@@ -12,6 +12,8 @@
         <module>portal</module>
         <module>core</module>
         <module>entity</module>
+        <module>service</module>
+        <module>api</module>
     </modules>
 
     <parent>

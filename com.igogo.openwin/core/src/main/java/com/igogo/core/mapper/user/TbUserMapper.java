@@ -1,8 +1,7 @@
 package com.igogo.core.mapper.user;
 
 
-import com.igogo.core.entity.TbUser;
-import org.apache.ibatis.annotations.Mapper;
+import com.igogo.entity.user.TbUser;
 
 //@Mapper
 public interface TbUserMapper {

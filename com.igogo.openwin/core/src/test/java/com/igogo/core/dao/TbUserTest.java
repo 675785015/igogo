@@ -1,7 +1,7 @@
 package com.igogo.core.dao;
 
 import com.igogo.core.base._BaseUnitTest;
-import com.igogo.core.entity.TbUser;
+import com.igogo.entity.user.TbUser;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
