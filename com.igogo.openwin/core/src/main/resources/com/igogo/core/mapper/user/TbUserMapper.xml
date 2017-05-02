@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.igogo.core.mapper.user.TbUserMapper" >
-  <resultMap id="BaseResultMap" type="com.igogo.core.entity.TbUser" >
+  <resultMap id="BaseResultMap" type="com.igogo.entity.user.TbUser" >
     <id column="U_ID" property="uId" jdbcType="BIGINT" />
     <result column="U_NAME" property="uName" jdbcType="VARCHAR" />
     <result column="U_AGE" property="uAge" jdbcType="INTEGER" />
@@ -20,7 +20,7 @@
     from tb_user
     where U_ID = #{uId,jdbcType=BIGINT}
   </select>
-  <insert id="insert" parameterType="com.igogo.core.entity.TbUser" >
+  <insert id="insert" parameterType="com.igogo.entity.user.TbUser" >
     <selectKey resultType="java.lang.Long" keyProperty="uId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -31,7 +31,7 @@
       #{uSex,jdbcType=INTEGER}, #{uCreateTime,jdbcType=TIMESTAMP}, #{uUpdateTime,jdbcType=TIMESTAMP}, 
       #{uLogout,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.igogo.core.entity.TbUser" >
+  <insert id="insertSelective" parameterType="com.igogo.entity.user.TbUser" >
     <selectKey resultType="java.lang.Long" keyProperty="uId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -83,7 +83,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.igogo.core.entity.TbUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.igogo.entity.user.TbUser" >
     update tb_user
     <set >
       <if test="uName != null" >
@@ -110,7 +110,7 @@
     </set>
     where U_ID = #{uId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.igogo.core.entity.TbUser" >
+  <update id="updateByPrimaryKey" parameterType="com.igogo.entity.user.TbUser" >
     update tb_user
     set U_NAME = #{uName,jdbcType=VARCHAR},
       U_AGE = #{uAge,jdbcType=INTEGER},

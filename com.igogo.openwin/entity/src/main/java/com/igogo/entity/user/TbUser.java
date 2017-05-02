@@ -1,4 +1,4 @@
-package com.igogo.core.entity;
+package com.igogo.entity.user;
 
 import java.util.Date;
 
