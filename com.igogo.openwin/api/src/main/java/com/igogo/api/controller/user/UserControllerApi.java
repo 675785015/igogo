@@ -21,6 +21,7 @@ public class UserControllerApi {
     @ResponseBody
     public TbUser getUserById(Long uId){
         TbUser user = userService.getUserById(uId);
+        System.out.println("222222222222");
         return user;
     }
 }
