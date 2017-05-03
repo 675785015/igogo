@@ -37,6 +37,7 @@ public class MybatisConfig {
 
     @Bean
     public SqlSessionFactory getSqlSessionFactory(DataSource dataSource) throws Exception {
+
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
 

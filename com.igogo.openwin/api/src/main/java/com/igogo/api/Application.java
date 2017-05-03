@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
  * Created by Lee on 2017/5/2.
  */
 @SpringBootApplication
-@ComponentScan("com.igogo.api.controller, com.igogo.service, com.igogo.core, com.igogo.entity")
+@ComponentScan("com.igogo.api.controller, com.igogo.service, com.igogo.core, com.igogo.entity, com.igogo.api.conf")
 public class Application {
 
     public static void main(String[] args) {
