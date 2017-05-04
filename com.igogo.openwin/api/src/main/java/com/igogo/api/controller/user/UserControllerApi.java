@@ -4,8 +4,10 @@ import com.igogo.entity.user.TbUser;
 import com.igogo.service.com.igogo.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by Lee on 2017/5/2.
@@ -24,4 +26,5 @@ public class UserControllerApi {
         System.out.println("222222222222");
         return user;
     }
+
 }
