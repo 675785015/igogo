@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Lee on 2017/5/3.
  */
-@Component()
+@Component
 public class MyEmbeddedServletContainerFactory extends TomcatEmbeddedServletContainerFactory {
 
     public EmbeddedServletContainer getEmbeddedServletContainer(ServletContextInitializer... initializers) {
@@ -27,5 +27,7 @@ public class MyEmbeddedServletContainerFactory extends TomcatEmbeddedServletCont
         //设置最大线程数
         protocol.setMaxThreads(2000);
         protocol.setConnectionTimeout(30000);
+
+
     }
 }
