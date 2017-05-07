@@ -14,6 +14,8 @@
         <module>entity</module>
         <module>service</module>
         <module>api</module>
+        <module>file</module>
+        <module>console</module>
     </modules>
 
     <parent>
