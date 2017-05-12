@@ -1,15 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
 <meta charset="utf-8">
 <title>index</title>
+
+    <script src="/content/js/lib/jquery.js"></script>
+    <script src="/content/js/lib/jquery.min.js"></script>
+    <script src="/content/myjs/common.js"></script>
+    <script src="/content/js/lib/jquery.form.js"></script>
+
+    <script>
+        function uploadimg(){$("#upfile").click();}
+
+        //使用js来提交表单，表单不能跳转
+        function submitUpload(){
+            var option = {
+                url:"localhost:8082/api/upload/uploadPic",//如果当前ajax指定url就使用该url，如果没有指定就使用表单中的url
+                data:{
+                    fileName:"imgsFile"
+                },
+                dataType:"text",
+                success:function(responseText){
+                    //把json格式的字符串转换成json对象
+                    var jsonObj = $.parseJSON(responseText);
+                    $("#imgsImgSrc").attr("src",jsonObj.realPath);
+                    $("#imgs").val(jsonObj.relativePath);
+                },
+                error:function(){
+                    alert("系统错误");
+                }
+            };
+            //$.ajax(option);
+            //使用ajax方式提交表单
+            $("#form111").ajaxSubmit(option);
+        }
+
+    </script>
+
+    <style>
+
+        .fileInput{width:102px;height:34px; background:url("https://www.baidu.com/img/bd_logo1.png");position:relative;}
+        .upfile{position:absolute;top:-100px;opacity:0;width:102px;height:34px;}
+        .upFileBtn{width:102px;height:34px;opacity:0;filter:alpha(opacity=0);cursor:pointer;}
+    </style>
 </head>
 <body>
 <h1>AAAAAAAAAAAAAAAAAA</h1>
 <h2>${index}</h2>
 
-<form action="/api/">
-
+<form id="form111" action=""  enctype="multipart/form-data" method="post">
+    <div class="fileInput left">
+        <input type="file" name="upfile" id="upfile" class="upfile" onchange="submitUpload()"/>
+        <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png" id="upload" onclick="uploadimg()">
+        <input class="upFileBtn" type="button" value="上传图片" onclick="document.getElementById('upfile').click()" />
+    </div>
+    <span class="tip left" id="upfileResult">图片大小不超过2M,大小90*90,支持jpg、png、bmp等格式。</span>
 
 </form>
 </body>
