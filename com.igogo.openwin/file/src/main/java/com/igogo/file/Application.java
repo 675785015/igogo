@@ -1,13 +1,11 @@
 package com.igogo.file;
 
-import com.sun.jersey.core.impl.provider.entity.XMLJAXBElementProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Created by Lee on 2017/5/12.
+ * Created by lenovo on 2017/5/7.
  */
-
 @SpringBootApplication
 public class Application {
 
