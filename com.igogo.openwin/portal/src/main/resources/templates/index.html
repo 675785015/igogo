@@ -15,9 +15,9 @@
         //使用js来提交表单，表单不能跳转
         function submitUpload(){
             var option = {
-                url:"localhost:8082/api/upload/uploadPic",//如果当前ajax指定url就使用该url，如果没有指定就使用表单中的url
+                url:"/api/upload/uploadPic",//如果当前ajax指定url就使用该url，如果没有指定就使用表单中的url
                 data:{
-                    fileName:"imgsFile"
+                    file:"upfile"
                 },
                 dataType:"text",
                 success:function(responseText){
